@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+	<title>jQuery Mousestop Event - Richard Scarrott</title>
+	<style type="text/css">
+		body {
+			font-family:arial, helvetica, sans-serif;
+			font-size:81.25%;
+			background:#DDD;
+			margin:16px;
+		}
+
+		.box {
+			background:#1788D7;
+			width:100px;
+			height:100px;
+			float:left;
+			margin:0 20px 0 0;
+			color:#FFF;
+			text-align:center;
+		}
+	</style>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.mousestop.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$('#box-1').mouseenter(function() {
+				alert('mouse entered');
+			});
+
+			$('#box-2').mousestop(function() {
+				alert('mouse stopped');
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="box-1" class="box">mouseenter</div>
+	<div id="box-2" class="box">mousestop</div>
+</body>
+</html>
