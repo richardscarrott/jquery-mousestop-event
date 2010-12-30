@@ -18,7 +18,7 @@ Thanks to jQuery's special event API the event object is passed to the first par
 
 I've also made the sensitivity of the event (i.e. the amount of time the mouse needs to be stationary before the event is fired) global so it can be changed by adjusting the value of $.mousestopDelay in milliseconds:
 
-$.mousestopDelay = 1000; // defaults to 50
+    $.mousestopDelay = 1000; // defaults to 50
 
 This sensitivity can also be adjusted on a per element basis by passing a Number into the bind() or mousestop() methods:
 
