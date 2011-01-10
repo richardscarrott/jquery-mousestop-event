@@ -15,46 +15,55 @@
  */
 
 (function($) {
-	// private vars
-	var timeout;
+
 	// public vars
 	$.mousestopDelay = 50;
+
 	// special event
 	$.event.special.mousestop = {
 		setup: function(data) {
 			$(this).data('mousestop', {delay: data})
-				   .bind('mouseover.mousestop', mouseoverHandler)
-				   .bind('mouseout.mousestop', mouseoutHandler);
+				   .bind('mouseenter.mousestop', mouseenterHandler)
+				   .bind('mouseleave.mousestop', mouseleaveHandler);
 		},
 		teardown: function() {
 			$(this).removeData('mousestop')
 			       .unbind('.mousestop');
 		}
 	};
+
 	// private methods
-	function mouseoverHandler(e) {
+	function mouseenterHandler(e) {
+    if (typeof this.timeout == 'undefined') {
+      this.timeout = null;
+    }
+
 		var elem = $(this),
 			data = elem.data('mousestop'),
       delay = data.delay || $.mousestopDelay;
-    
+
 		elem.bind('mousemove.mousestop', function() {
-			clearTimeout(timeout);
-			timeout = setTimeout(function() {
+			clearTimeout(this.timeout);
+			this.timeout = setTimeout(function() {
 				elem.trigger('mousestop');
 			}, delay);
 		});
 	};
-	function mouseoutHandler(e) {
-		var elem = $(e.target);
+
+	function mouseleaveHandler(e) {
+		var elem = $(this);
+
 		elem.unbind('mousemove.mousestop');
-		clearTimeout(timeout);
+		clearTimeout(this.timeout);
 	};
+
 	// shorthand alias
 	$.fn.mousestop = function(data, fn) {
 		if (fn == null) {
 			fn = data;
 			data = null;
 		}
+
 		return arguments.length > 0 ? this.bind('mousestop', data, fn) : this.trigger('mousestop');
 	};
 })(jQuery);
