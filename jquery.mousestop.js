@@ -32,8 +32,8 @@
 		}
 	};
 	// private methods
-	function mouseenterHandler(e) {
-		var elem = $(e.target),
+	function mouseenterHandler() {
+		var elem = $(this),
 			data = elem.data('mousestop'),
 			delay = data.delay || $.mousestopDelay;
 
@@ -44,8 +44,8 @@
 			}, delay);
 		});
 	};
-	function mouseleaveHandler(e) {
-		var elem = $(e.target);
+	function mouseleaveHandler() {
+		var elem = $(this);
 		elem.unbind('mousemove.mousestop');
 		clearTimeout(timeout);
 	};
