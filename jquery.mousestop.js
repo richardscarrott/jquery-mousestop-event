@@ -15,7 +15,6 @@
  */
 
 (function($) {
-
 	// public vars
 	$.mousestopDelay = 50;
 
@@ -33,13 +32,11 @@
 	};
 
 	// private methods
-<<<<<<< HEAD
-	function mouseenterHandler(e) {
-		if (typeof this.timeout == 'undefined') {
+	function mouseenterHandler() {
+		if (typeof this.timeout === 'undefined') {
 			this.timeout = null;
 		}
-
->>>>>>> 191e56fe01483efedb0ce753cdf6553baf16b2a5
+		
 		var elem = $(this),
 			data = elem.data('mousestop'),
 			delay = data.delay || $.mousestopDelay;
@@ -51,10 +48,9 @@
 			}, delay);
 		});
 	};
-<<<<<<< HEAD
-	function mouseleaveHandler(e) {
+	
+	function mouseleaveHandler() {
 		var elem = $(this);
->>>>>>> 191e56fe01483efedb0ce753cdf6553baf16b2a5
 		elem.unbind('mousemove.mousestop');
 		clearTimeout(this.timeout);
 	};
