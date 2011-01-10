@@ -23,8 +23,8 @@
 	$.event.special.mousestop = {
 		setup: function(data) {
 			$(this).data('mousestop', {delay: data})
-				   .bind('mouseenter.mousestop', mouseenterHandler)
-				   .bind('mouseleave.mousestop', mouseleaveHandler);
+				   .bind('mouseover.mousestop', mouseoverHandler)
+				   .bind('mouseout.mousestop', mouseoutHandler);
 		},
 		teardown: function() {
 			$(this).removeData('mousestop')
@@ -32,11 +32,11 @@
 		}
 	};
 	// private methods
-	function mouseenterHandler(e) {
-		var elem = $(e.target),
+	function mouseoverHandler(e) {
+		var elem = $(this),
 			data = elem.data('mousestop'),
-			delay = data.delay || $.mousestopDelay;
-
+      delay = data.delay || $.mousestopDelay;
+    
 		elem.bind('mousemove.mousestop', function() {
 			clearTimeout(timeout);
 			timeout = setTimeout(function() {
@@ -44,7 +44,7 @@
 			}, delay);
 		});
 	};
-	function mouseleaveHandler(e) {
+	function mouseoutHandler(e) {
 		var elem = $(e.target);
 		elem.unbind('mousemove.mousestop');
 		clearTimeout(timeout);
