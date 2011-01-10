@@ -15,10 +15,10 @@
  */
 
 (function($) {
-	// private vars
-	var timeout;
+
 	// public vars
 	$.mousestopDelay = 50;
+
 	// special event
 	$.event.special.mousestop = {
 		setup: function(data) {
@@ -31,30 +31,41 @@
 			       .unbind('.mousestop');
 		}
 	};
+
 	// private methods
-	function mouseenterHandler() {
+<<<<<<< HEAD
+	function mouseenterHandler(e) {
+		if (typeof this.timeout == 'undefined') {
+			this.timeout = null;
+		}
+
+>>>>>>> 191e56fe01483efedb0ce753cdf6553baf16b2a5
 		var elem = $(this),
 			data = elem.data('mousestop'),
 			delay = data.delay || $.mousestopDelay;
 
 		elem.bind('mousemove.mousestop', function() {
-			clearTimeout(timeout);
-			timeout = setTimeout(function() {
+			clearTimeout(this.timeout);
+			this.timeout = setTimeout(function() {
 				elem.trigger('mousestop');
 			}, delay);
 		});
 	};
-	function mouseleaveHandler() {
+<<<<<<< HEAD
+	function mouseleaveHandler(e) {
 		var elem = $(this);
+>>>>>>> 191e56fe01483efedb0ce753cdf6553baf16b2a5
 		elem.unbind('mousemove.mousestop');
-		clearTimeout(timeout);
+		clearTimeout(this.timeout);
 	};
+
 	// shorthand alias
 	$.fn.mousestop = function(data, fn) {
 		if (fn == null) {
 			fn = data;
 			data = null;
 		}
+
 		return arguments.length > 0 ? this.bind('mousestop', data, fn) : this.trigger('mousestop');
 	};
 })(jQuery);
