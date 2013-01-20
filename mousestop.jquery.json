@@ -1,0 +1,34 @@
+{
+  "name": "event.mousestop",
+  "title": "jQuery Mousestop Event",
+  "description": "jQuery mousestop offers a less intrusive alternative to JavaScripts mouseenter event.",
+  "keywords": [
+    "event",
+    "interaction",
+    "mouse"
+  ],
+  "version": "v0.1.1",
+  "author": {
+    "name": "Richard Scarrott",
+    "email": "riscarrott@googlemail.com",
+    "url": "http://richardscarrott.co.uk"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    },
+    {
+    "type": "GPL",
+    "url": "http://www.gnu.org/licenses/gpl.html"
+    }
+  ],
+  "bugs": "https://github.com/richardscarrott/jquery-mousestop-event/issues",
+  "homepage": "http://richardscarrott.co.uk/posts/view/jquery-mousestop-event",
+  "demo": "http://richardscarrott.co.uk/posts/view/jquery-mousestop-event#demo",
+  "docs": "https://github.com/richardscarrott/jquery-mousestop-event#readme",
+  "download": "https://github.com/richardscarrott/jquery-mousestop-event",
+  "dependencies": {
+    "jquery": ">=1.3"
+  }
+}
