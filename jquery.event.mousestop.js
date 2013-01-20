@@ -1,5 +1,5 @@
 /*
- * jQuery Mousestop Event v0.1.0
+ * jQuery Event Mousestop v0.1.1
  * http://richardscarrott.co.uk/posts/view/jquery-mousestop-event
  *
  * Copyright (c) 2010 Richard Scarrott
@@ -11,7 +11,6 @@
  * http://www.gnu.org/licenses/gpl.html
  *
  * Requires jQuery v1.3+
- *
  */
 
 (function($) {
