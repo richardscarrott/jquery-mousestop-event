@@ -44,7 +44,6 @@
             clearTimeout(this.timeout);
             this.timeout = setTimeout(function() {
                 elem.trigger('mousestop');
-                elem.unbind('mousemove.mousestop');
             }, delay);
         });
     };
